@@ -2,9 +2,8 @@ from mcpi.minecraft import Minecraft
 from mcpi import block
 
 mc=Minecraft.create()
-wood=5
 stone=1
-glass=20
+air=0
 x,y,z=mc.player.getPos()
 
 def Wände(xs,ys,zs,steps,ausrichtung,block):
@@ -17,5 +16,4 @@ def Wände(xs,ys,zs,steps,ausrichtung,block):
             for k in range(steps):
                 mc.setBlock(xs,ys+h,zs+k,block)
 
-
-Wände(20,46,20,8,z,stone)
+Wände(20,46,23,2,z,air)
