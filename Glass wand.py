@@ -4,8 +4,8 @@ from mcpi import block
 mc=Minecraft.create()
 wood=5
 stone=1
+glass=20
 x,y,z=mc.player.getPos()
-
 
 def Wände(xs,ys,zs,steps,ausrichtung,block):
     if ausrichtung == x:
@@ -16,10 +16,6 @@ def Wände(xs,ys,zs,steps,ausrichtung,block):
         for h in range(steps):
             for k in range(steps):
                 mc.setBlock(xs,ys+h,zs+k,block)
-    
-                
-
-Wände(10,44,10,8,z,stone)
 
 
-    
+Wände(10,46,12,4,z,glass)
