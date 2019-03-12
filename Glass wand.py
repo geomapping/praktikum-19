@@ -7,15 +7,15 @@ stone=1
 glass=20
 x,y,z=mc.player.getPos()
 
-def Wände(xs,ys,zs,steps,ausrichtung,block):
+def Wände(xs,ys,zs,steps,ausrichtung,glass):
     if ausrichtung == x:
         for b in range(steps):
             for c in range(steps):
-                mc.setBlock(xs+c,ys+b,zs,block)
+                mc.setBlock(xs+c,ys+b,zs,glass)
     else:
         for h in range(steps):
             for k in range(steps):
-                mc.setBlock(xs,ys+h,zs+k,block)
+                mc.setBlock(xs,ys+h,zs+k,glass)
 
 
-Wände(20,46,20,8,z,stone)
+Wände(25,46,10,8,z,glass)
