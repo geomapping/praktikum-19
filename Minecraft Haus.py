@@ -16,8 +16,8 @@ def Bodenplatte(xs,ys,zs, steps,block):
             mc.setBlock(xs+i,ys,zs+j,block)
 
 
-def Wände(xs,ys,zs,steps,ausrichtung,block):
-    if ausrichtung == x:
+def Wand(xs,ys,zs,steps,ausrichtung,block):
+    if ausrichtung == "g":
         for b in range(steps):
             for c in range(steps):
                 mc.setBlock(xs+c,ys+b,zs,block)
@@ -27,7 +27,7 @@ def Wände(xs,ys,zs,steps,ausrichtung,block):
                 mc.setBlock(xs,ys+h,zs+k,block)
 
 def fenster(xs,ys,zs,steps,ausrichtung,glass):
-    if ausrichtung == x:
+    if ausrichtung == "g":
         for b in range(steps):
             for c in range(steps):
                 mc.setBlock(xs+c,ys+b,zs,glass)
@@ -37,7 +37,7 @@ def fenster(xs,ys,zs,steps,ausrichtung,glass):
                 mc.setBlock(xs,ys+h,zs+k,glass)
 
 def Tür(xs,ys,zs,steps,ausrichtung,block):
-    if ausrichtung == x:
+    if ausrichtung == "g":
         for b in range(steps):
             for c in range(steps):
                 mc.setBlock(xs+c,ys+b,zs,block)
@@ -46,13 +46,17 @@ def Tür(xs,ys,zs,steps,ausrichtung,block):
             for k in range(steps):
                 mc.setBlock(xs,ys+h,zs+k,block)
 
+def Bauehaus (a,b,c):
+    Bodenplatte(a,b,c,8,wood)
+    Wand(a,b,c,8,"g",wood)
+    fenster(a+2,b+2,c,4,"g",glass)
+    Wand(a,b,c+7,8,"g",wood)
+    fenster(a+2,b+2,c+7,4,"g",glass)
+    Wand(a,b,c,8,"r",wood)
+    Tür(a,b+1,c+3,2,"r",air)
+    Wand(a+7,b,c,8,"r",wood)
+    Bodenplatte(a+1,b+7,c+1,6,glass)
+
+
 #Befehle
-Bodenplatte(10,20,30,8,wood)
-Wände(10,20,30,8,x,wood)
-fenster(12,22,30,4,x,glass)
-Wände(10,20,37,8,x,wood)
-fenster(12,22,37,4,x,glass)
-Wände(10,20,30,8,z,wood)
-Tür(10,21,33,2,z,air)
-Wände(17,20,30,8,z,wood)
-Bodenplatte(11,27,31,6,glass)
+Bauehaus(40,20,40)
